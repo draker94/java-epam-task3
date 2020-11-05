@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <greenhouse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://training.by/greenhouse/namespaces" xsi:schemaLocation="https://training.by/greenhouse/namespaces greenhouse.xsd">
+<plant id="f3">
+	<name>Мирабилис</name>
+	<soil>грунтовая</soil>
+	<origin>Мексика</origin>
+<visual-parameters>
+	<stem-color>Красный</stem-color>
+	<leaf-color>Малиновый</leaf-color>
+	<average-size>45</average-size>
+</visual-parameters>
+<growing-tips>
+	<temp>20</temp>
+	<lighting>false</lighting>
+	<irrigation>7000</irrigation>
+</growing-tips>
+	<multiplying>листьями</multiplying>
+</plant>
 <plant id="f1">
 	<name>Пион</name>
 	<soil>подзолистая</soil>
@@ -31,21 +47,5 @@
 	<irrigation>4000</irrigation>
 </growing-tips>
 	<multiplying>семенами</multiplying>
-</plant>
-<plant id="f3">
-	<name>Мирабилис</name>
-	<soil>грунтовая</soil>
-	<origin>Мексика</origin>
-<visual-parameters>
-	<stem-color>Красный</stem-color>
-	<leaf-color>Малиновый</leaf-color>
-	<average-size>45</average-size>
-</visual-parameters>
-<growing-tips>
-	<temp>20</temp>
-	<lighting>false</lighting>
-	<irrigation>7000</irrigation>
-</growing-tips>
-	<multiplying>листьями</multiplying>
 </plant>
 </greenhouse>

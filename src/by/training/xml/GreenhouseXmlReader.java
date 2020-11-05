@@ -15,9 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class GreenhouseXmlReader {
 
@@ -95,6 +93,13 @@ public class GreenhouseXmlReader {
         } catch (IOException | XMLStreamException e) {
             e.printStackTrace();
         }
+
+        Collections.sort(plantList, new Comparator<Plant>() {
+            @Override
+            public int compare(Plant o1, Plant o2) {
+                return o1.getName().compareToIgnoreCase(o2.getName());
+            }
+        });
         return plantList;
     }
 }
