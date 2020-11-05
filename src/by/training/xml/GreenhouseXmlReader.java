@@ -12,13 +12,11 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
 public class GreenhouseXmlReader {
-
     public List<Plant> readPlants(String xmlConfig) {
         List<Plant> plantList = new ArrayList<>();
         XMLInputFactory inputFactory = XMLInputFactory.newInstance();

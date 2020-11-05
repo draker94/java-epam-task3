@@ -51,7 +51,7 @@ public class GreenhouseXmlValidator extends DefaultHandler {
     public boolean validate() {
         try (InputStream inputStream = new FileInputStream(pathXml)) {
             SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema = schemaFactory.newSchema(new File("resources/greenhouse.xsd"));
+            Schema schema = schemaFactory.newSchema(new File("data/greenhouse.xsd"));
             Validator validator = schema.newValidator();
             validator.validate(new StreamSource(inputStream));
             return true;

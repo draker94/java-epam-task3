@@ -10,7 +10,11 @@ public class GrowingTips {
     }
 
     public void setTemperature(int temperature) {
-        this.temperature = temperature;
+        if (temperature < -40 || temperature > 40) {
+            throw new UnsupportedOperationException("Average temperature can't be so big or small!");
+        } else {
+            this.temperature = temperature;
+        }
     }
 
     public boolean isLighting() {
@@ -26,15 +30,19 @@ public class GrowingTips {
     }
 
     public void setIrrigation(int irrigation) {
-        this.irrigation = irrigation;
+        if (irrigation < 1) {
+            throw new UnsupportedOperationException("Irrigation can't be less than 1");
+        } else {
+            this.irrigation = irrigation;
+        }
     }
 
     @Override
     public String toString() {
         return "GrowingTips{" +
-                "temperature=" + temperature +
+                "temperature (degree celsius)=" + temperature +
                 ", lighting=" + lighting +
-                ", irrigation=" + irrigation +
+                ", irrigation (ml)=" + irrigation +
                 '}';
     }
 }

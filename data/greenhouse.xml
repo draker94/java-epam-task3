@@ -12,13 +12,13 @@
             <average-size>18</average-size>
         </visual-parameters>
         <growing-tips>
-            <temp>10</temp>
+            <temp>15</temp>
             <lighting>true</lighting>
             <irrigation>12500</irrigation>
         </growing-tips>
         <multiplying>черенками</multiplying>
     </plant>
-    <plant id="f2">
+    <plant id="a2">
         <name>Пшеница</name>
         <soil>дерново-подзолистая</soil>
         <origin>Армения</origin>
@@ -44,7 +44,7 @@
             <average-size>45</average-size>
         </visual-parameters>
         <growing-tips>
-            <temp>20</temp>
+            <temp>-20</temp>
             <lighting>false</lighting>
             <irrigation>7000</irrigation>
         </growing-tips>

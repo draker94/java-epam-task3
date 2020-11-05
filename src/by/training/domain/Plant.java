@@ -75,8 +75,7 @@ public class Plant {
 
     @Override
     public String toString() {
-        return "Plant{" +
-                "name='" + name + '\'' +
+        return "Растение: " + name + '\'' +
                 ", soil=" + soil +
                 ", origin='" + origin + '\'' +
                 ", visualParameters=" + visualParameters +

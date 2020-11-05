@@ -26,7 +26,11 @@ public class VisualParameters {
     }
 
     public void setAverageSize(int averageSize) {
-        this.averageSize = averageSize;
+        if (averageSize < 1) {
+            throw new UnsupportedOperationException("Average size can't be less than 1");
+        } else {
+            this.averageSize = averageSize;
+        }
     }
 
     @Override

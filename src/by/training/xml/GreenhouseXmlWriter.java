@@ -57,7 +57,6 @@ public class GreenhouseXmlWriter {
             }
             eventWriter.add(eventFactory.createEndDocument());
             eventWriter.close();
-
         } catch (IOException | XMLStreamException e) {
             e.printStackTrace();
         }

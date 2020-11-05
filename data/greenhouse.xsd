@@ -25,16 +25,16 @@
                                     <sequence>
                                         <element name="stem-color" type="string"/>
                                         <element name="leaf-color" type="string"/>
-                                        <element name="average-size" type="int"/>
+                                        <element name="average-size" type="tns:valid-min-value"/>
                                     </sequence>
                                 </complexType>
                             </element>
                             <element name="growing-tips">
                                 <complexType>
                                     <sequence>
-                                        <element name="temp" type="int"/>
+                                        <element name="temp" type="tns:valid-temperature"/>
                                         <element name="lighting" type="boolean"/>
-                                        <element name="irrigation" type="int"/>
+                                        <element name="irrigation" type="tns:valid-min-value"/>
                                     </sequence>
                                 </complexType>
                             </element>
@@ -60,4 +60,15 @@
             </sequence>
         </complexType>
     </element>
+    <simpleType name="valid-min-value">
+        <restriction base="integer">
+            <minInclusive value="1"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="valid-temperature">
+        <restriction base="integer">
+            <minInclusive value="-40"/>
+            <maxInclusive value="40"/>
+        </restriction>
+    </simpleType>
 </schema>
