@@ -4,6 +4,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import javax.security.sasl.SaslException;
 import javax.xml.XMLConstants;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
@@ -22,24 +23,24 @@ public class GreenhouseXmlValidator extends DefaultHandler {
     private StringBuilder getErrorInfo(SAXParseException e) {
         StringBuilder builder = new StringBuilder();
         builder.append('[').append(e.getLineNumber()).append(':').append(e.getColumnNumber()).append(']');
-        builder.append(System.lineSeparator()).append(e.getLocalizedMessage()).append(System.lineSeparator());
+        builder.append(System.lineSeparator()).append(e.getLocalizedMessage()).append('\n');
         return builder;
     }
 
     @Override
-    public void warning(SAXParseException e) {
+    public void warning(SAXParseException e) throws SAXException  {
         error.append("WARNING: ");
         error.append(getErrorInfo(e));
     }
 
     @Override
-    public void error(SAXParseException e) {
+    public void error(SAXParseException e) throws SAXException {
         error.append("ERROR: ");
         error.append(getErrorInfo(e));
     }
 
     @Override
-    public void fatalError(SAXParseException e) {
+    public void fatalError(SAXParseException e) throws SAXException {
         error.append("FATALERROR: ");
         error.append(getErrorInfo(e));
     }
@@ -49,18 +50,15 @@ public class GreenhouseXmlValidator extends DefaultHandler {
     }
 
     public boolean validate() {
+        SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         try (InputStream inputStream = new FileInputStream(pathXml)) {
-            SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             Schema schema = schemaFactory.newSchema(new File("data/greenhouse.xsd"));
             Validator validator = schema.newValidator();
+            validator.setErrorHandler(this);
             validator.validate(new StreamSource(inputStream));
-            return true;
+            return getError() == null;
         }
-        catch (SAXException e) {
-            return false;
-        }
-        catch (IOException e) {
-            e.printStackTrace();
+        catch (SAXException | IOException e) {
             return false;
         }
     }
