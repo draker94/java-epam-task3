@@ -91,13 +91,6 @@ public class GreenhouseXmlReader {
         } catch (IOException | XMLStreamException e) {
             e.printStackTrace();
         }
-
-        Collections.sort(plantList, new Comparator<Plant>() {
-            @Override
-            public int compare(Plant o1, Plant o2) {
-                return o1.getName().compareToIgnoreCase(o2.getName());
-            }
-        });
         return plantList;
     }
 }

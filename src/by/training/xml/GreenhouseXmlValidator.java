@@ -28,19 +28,19 @@ public class GreenhouseXmlValidator extends DefaultHandler {
     }
 
     @Override
-    public void warning(SAXParseException e) throws SAXException  {
+    public void warning(SAXParseException e) {
         error.append("WARNING: ");
         error.append(getErrorInfo(e));
     }
 
     @Override
-    public void error(SAXParseException e) throws SAXException {
+    public void error(SAXParseException e) {
         error.append("ERROR: ");
         error.append(getErrorInfo(e));
     }
 
     @Override
-    public void fatalError(SAXParseException e) throws SAXException {
+    public void fatalError(SAXParseException e) {
         error.append("FATALERROR: ");
         error.append(getErrorInfo(e));
     }

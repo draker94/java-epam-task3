@@ -18,11 +18,9 @@ public enum Soil {
     }
 
     public static Soil getInstance(String xmlString) {
-        Soil soilTarget;
         for (Soil soil : Soil.values()) {
             if (soil.soilType.equalsIgnoreCase(xmlString)) {
-                soilTarget = soil;
-                return soilTarget;
+                return soil;
             }
         }
         return null;
